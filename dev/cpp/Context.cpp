@@ -72,21 +72,7 @@ GLuint CompileShader (GLenum type, std::string *source) {
     sourceString[0] = source->c_str();
     sourceStringLengths[0] = source->length();
     printf("start glCreateShader(%d).\n", type);
-    GLuint shader;
-    try{
-        shader = glCreateShader(type);
-    }
-    catch(int e){
-        if(e == GL_INVALID_ENUM){
-            printf("GL_INVALID_ENUM %d\n", e);
-        }
-        else{
-            printf("Unknown error %d\n", e);
-        }
-    }
-    catch(...){
-        printf("error\n");
-    }
+    GLuint shader = glCreateShader(type);
     printf("end glCreateShader(%d).\n", type);
 
     if (shader == 0) {
